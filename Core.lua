@@ -4,12 +4,7 @@
 -- Version : V.1.3.4a + FLY
 -- =====================================================
 
--- ===== KEY SYSTEM =====
-local VALID_KEY = "NONON123"
-if not _G.KEY or _G.KEY ~= VALID_KEY then
-	warn("❌ INVALID KEY")
-	return
-end
+print("N-HUB CORE LOADED")
 
 repeat task.wait() until game:IsLoaded()
 task.wait(1)
