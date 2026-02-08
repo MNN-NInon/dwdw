@@ -14,6 +14,6 @@ end
 _G.NHUB_LOADER = true
 
 -- ===== LOAD CORE =====
-local CoreURL = "https://raw.githubusercontent.com/MNN-NInon/dwdw/refs/heads/main/Core.lua"
+local CoreURL = "https://raw.githubusercontent.com/MNN-NInon/N-HUB/refs/heads/main/My%20Tycoon%20Farm.lua"
 
 loadstring(game:HttpGet(CoreURL))()
