@@ -1,54 +1,19 @@
 -- =====================================================
--- N-HUB | LOADER
+-- N-HUB LOADER (Single Source Auth)
 -- =====================================================
 
-repeat task.wait() until game:IsLoaded()
+print("N-HUB LOADER START")
 
--- ===== SETTINGS =====
-local HUB_NAME = "N-HUB | My Tycoon Farm"
-local VERSION  = "1.3.4b-r1"
-
--- 🔑 KEY SYSTEM
-local VALID_KEY = "NONON123"
-
-if not _G.KEY or _G.KEY ~= VALID_KEY then
-	warn("❌ INVALID KEY")
-	return
+-- ===== CHECK KEY INPUT =====
+if not _G.KEY then
+    warn("❌ PLEASE INPUT KEY")
+    return
 end
 
--- 🔔 NOTIFY LOAD
-pcall(function()
-	game.StarterGui:SetCore("SendNotification",{
-		Title = HUB_NAME,
-		Text = "Loading Core...",
-		Duration = 3
-	})
-end)
+-- ===== LOADER TOKEN =====
+_G.NHUB_LOADER = true
 
--- =====================================================
--- 🔗 CORE LINK (เปลี่ยนลิงก์มึงตรงนี้)
--- =====================================================
+-- ===== LOAD CORE =====
+local CoreURL = "https://raw.githubusercontent.com/MNN-NInon/dwdw/refs/heads/main/Core.lua"
 
-local CORE_URL = "https://raw.githubusercontent.com/MNN-NInon/N-HUB/refs/heads/main/My%20Tycoon%20Farm.lua"
-
--- =====================================================
--- 🚀 LOAD CORE
--- =====================================================
-
-local success,err = pcall(function()
-	loadstring(game:HttpGet(CORE_URL))()
-end)
-
-if not success then
-	warn("❌ LOAD CORE FAILED :",err)
-
-	pcall(function()
-		game.StarterGui:SetCore("SendNotification",{
-			Title = HUB_NAME,
-			Text = "Core Load Failed",
-			Duration = 5
-		})
-	end)
-else
-	print("✅ CORE LOADED | VERSION :",VERSION)
-end
+loadstring(game:HttpGet(CoreURL))()
