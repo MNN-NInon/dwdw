@@ -11,5 +11,6 @@ local l2 = d(l1)
 local l3 = d(l2)
 local l4 = d(l3)
 local real = d(l4)
+print(real)
 
 loadstring(game:HttpGet(real))()
